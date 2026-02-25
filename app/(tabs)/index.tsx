@@ -1,71 +1,31 @@
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Link } from "expo-router";
+import { Text, TouchableOpacity, View } from "react-native";
+import { AppStyles } from "../../assets/styles/AppStyles";
 
 export default function HomeScreen() {
   return (
-    <LinearGradient colors={["#f62594", "#e897df"]} style={styles.container}>
-      <View style={styles.card}>
-        <Text style={styles.title}>Hallo</Text>
-        <Text style={styles.title}>✨This My First App✨</Text>
+    <LinearGradient colors={["#fd9ed1", "#fcd9f8"]} style={AppStyles.container}>
+      <View style={[AppStyles.card, AppStyles.center]}>
+        <Text style={AppStyles.buttonText1}>Hallo</Text>
+        <Text style={AppStyles.buttonText1}>✨This My First App✨</Text>
 
-        <Text style={styles.name}>My Name is Riah Ulina 💙</Text>
-        <Text style={styles.name}>MI-4A</Text>
+        <Text style={AppStyles.text}>My Name is Riah Ulina 💙</Text>
+        <Text style={AppStyles.text}>MI-4A</Text>
 
-        <Text style={styles.subtitle}>My Experience in Mobile Dev 🚀</Text>
+        <Text style={AppStyles.text}>My Experience in Mobile Dev 🚀</Text>
 
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Mulai</Text>
-        </TouchableOpacity>
+        <Link href="/AboutScreen" asChild>
+          <TouchableOpacity style={AppStyles.button}>
+            <Text style={AppStyles.buttonText1}>Kenal Saya Lebih Dekat</Text>
+          </TouchableOpacity>
+        </Link>
+        <Link href="/explore" asChild>
+          <TouchableOpacity style={AppStyles.button}>
+            <Text style={AppStyles.buttonText1}>Terhubung Dengan Saya</Text>
+          </TouchableOpacity>
+        </Link>
       </View>
     </LinearGradient>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-  },
-
-  card: {
-    backgroundColor: "#f9b1ea",
-    margin: 25,
-    padding: 30,
-    borderRadius: 20,
-    alignItems: "center",
-    elevation: 6,
-  },
-
-  title: {
-    fontSize: 26,
-    fontWeight: "bold",
-    marginBottom: 10,
-  },
-
-  name: {
-    fontSize: 18,
-    fontWeight: "600",
-    marginBottom: 8,
-    color: "#333",
-  },
-
-  subtitle: {
-    fontSize: 16,
-    color: "#555",
-    textAlign: "center",
-    marginBottom: 25,
-  },
-
-  button: {
-    backgroundColor: "#2575fc",
-    paddingVertical: 12,
-    paddingHorizontal: 35,
-    borderRadius: 25,
-  },
-
-  buttonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-});
